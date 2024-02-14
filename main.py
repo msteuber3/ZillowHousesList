@@ -5,15 +5,21 @@ import requests
 
 HOST = "10.184.187.249"
 PORT = 8000
+username = 'myusername'
+password = 'mypassword'
+
+response = requests.get("https://realpython.com", headers={username: password})
+print(response.status_code)
+
 
 class HTTP(BaseHTTPRequestHandler):
-
     def do_GET(self):
+
         self.send_response(200)
         self.send_header("Content-type", "text/html")
         self.end_headers()
 
-        self.wfile.write(bytes("<html><body><h1>Hello world</h1></body></html>", "utf-8"))
+        self.wfile.write(bytes("<html><body><h1>Get fucked</h1></body></html>", "utf-8"))
         url = "https://zillow-working-api.p.rapidapi.com/client/byaddress"
 
         querystring = {"propertyaddress": "10945 MCVINE AVE LOS ANGELES CA 91040"}
